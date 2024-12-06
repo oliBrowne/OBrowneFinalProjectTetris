@@ -235,6 +235,12 @@ void LCD_Draw_Vertical_Line(uint16_t x, uint16_t y, uint16_t len, uint16_t color
 	  LCD_Draw_Pixel(x, i+y, color);
   }
 }
+void LCD_Draw_Box(uint16_t x, uint16_t y,uint16_t len, uint16_t color){
+	for (uint16_t i = 0; i < len; i++){
+		LCD_Draw_Vertical_Line(x,y,len,color);
+	}
+
+}
 
 void LCD_Clear(uint8_t LayerIndex, uint16_t Color)
 {
