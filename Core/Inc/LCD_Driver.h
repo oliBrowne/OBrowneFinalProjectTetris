@@ -74,6 +74,9 @@ void LCD_Clear(uint8_t LayerIndex, uint16_t Color);
 
 void LCD_Error_Handler(void);
 
+void title_screen(void);
+void game_screen(void);
+void end_screen(void);
 // Demo using provided functions
 void visualDemo(void);
 

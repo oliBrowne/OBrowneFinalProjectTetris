@@ -235,9 +235,16 @@ void LCD_Draw_Vertical_Line(uint16_t x, uint16_t y, uint16_t len, uint16_t color
 	  LCD_Draw_Pixel(x, i+y, color);
   }
 }
+void LCD_Draw_Horizontal_Line(uint16_t x, uint16_t y, uint16_t len, uint16_t color)
+{
+  for (uint16_t i = 0; i < len; i++)
+  {
+	  LCD_Draw_Pixel(x+i, y, color);
+  }
+}
 void LCD_Draw_Box(uint16_t x, uint16_t y,uint16_t len, uint16_t color){
 	for (uint16_t i = 0; i < len; i++){
-		LCD_Draw_Vertical_Line(x,y,len,color);
+		LCD_Draw_Vertical_Line(x+i,y,len,color);
 	}
 
 }
@@ -290,51 +297,312 @@ void LCD_DisplayChar(uint16_t Xpos, uint16_t Ypos, uint8_t Ascii)
   Ascii -= 32;
   LCD_Draw_Char(Xpos, Ypos, &LCD_Currentfonts->table[Ascii * LCD_Currentfonts->Height]);
 }
+void title_screen(void){
 
-void visualDemo(void)
-{
-	uint16_t x;
-	uint16_t y;
-	// This for loop just illustrates how with using logic and for loops, you can create interesting things
-	// this may or not be useful ;)
-	for(y=0; y<LCD_PIXEL_HEIGHT; y++){
-		for(x=0; x < LCD_PIXEL_WIDTH; x++){
-			if (x & 32)
-				frameBuffer[x*y] = LCD_COLOR_WHITE;
-			else
-				frameBuffer[x*y] = LCD_COLOR_BLACK;
-		}
-	}
-
-	HAL_Delay(1500);
-	LCD_Clear(0, LCD_COLOR_GREEN);
-	HAL_Delay(1500);
-	LCD_Clear(0, LCD_COLOR_RED);
-	HAL_Delay(1500);
-	LCD_Clear(0, LCD_COLOR_WHITE);
-	LCD_Draw_Vertical_Line(10,10,250,LCD_COLOR_MAGENTA);
-	HAL_Delay(1500);
-	LCD_Draw_Vertical_Line(230,10,250,LCD_COLOR_MAGENTA);
-	HAL_Delay(1500);
-
-	LCD_Draw_Circle_Fill(125,150,20,LCD_COLOR_BLACK);
-	HAL_Delay(2000);
-
-	LCD_Clear(0,LCD_COLOR_BLUE);
-	LCD_SetTextColor(LCD_COLOR_BLACK);
 	LCD_SetFont(&Font16x24);
 
-	LCD_DisplayChar(100,140,'H');
-	LCD_DisplayChar(115,140,'e');
-	LCD_DisplayChar(125,140,'l');
-	LCD_DisplayChar(130,140,'l');
-	LCD_DisplayChar(140,140,'o');
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
 
-	LCD_DisplayChar(100,160,'W');
-	LCD_DisplayChar(115,160,'o');
-	LCD_DisplayChar(125,160,'r');
-	LCD_DisplayChar(130,160,'l');
-	LCD_DisplayChar(140,160,'d');
+	//line
+	LCD_Draw_Box(20,80,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,60,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,20,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,40,20,LCD_COLOR_CYAN);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_BLACK);
+
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+	//square
+	LCD_Draw_Box(160,200,20,LCD_COLOR_RED);
+	LCD_Draw_Box(180,200,20,LCD_COLOR_RED);
+	LCD_Draw_Box(180,220,20,LCD_COLOR_RED);
+	LCD_Draw_Box(160,220,20,LCD_COLOR_RED);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_WHITE);
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+	//L
+	LCD_Draw_Box(20,220,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(20,240,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(20,260,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(40,260,20,LCD_COLOR_BLUE);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_BLACK);
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+
+	//other L
+	LCD_Draw_Box(80,80,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(80,100,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(80,120,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(60,120,20,LCD_COLOR_GREEN);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_WHITE);
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+	// smol pp
+	LCD_Draw_Box(150,20,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(150,40,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(170,20,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(130,20,20,LCD_COLOR_BLUE2);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_BLACK);
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+	//squiggle
+	LCD_Draw_Box(70,170,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(90,170,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(90,190,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(110,190,20,LCD_COLOR_MAGENTA);
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_WHITE);
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+	//other squiggle
+	LCD_Draw_Box(160,270,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(180,270,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(160,290,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(140,290,20,LCD_COLOR_YELLOW);
+
+
+	HAL_Delay(500);
+	LCD_Clear(0, LCD_COLOR_BLACK);
+
+
+	//line
+	LCD_Draw_Box(20,80,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,60,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,20,20,LCD_COLOR_CYAN);
+	LCD_Draw_Box(20,40,20,LCD_COLOR_CYAN);
+
+
+
+	//square
+	LCD_Draw_Box(160,200,20,LCD_COLOR_RED);
+	LCD_Draw_Box(180,200,20,LCD_COLOR_RED);
+	LCD_Draw_Box(180,220,20,LCD_COLOR_RED);
+	LCD_Draw_Box(160,220,20,LCD_COLOR_RED);
+
+
+	//L
+	LCD_Draw_Box(20,220,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(20,240,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(20,260,20,LCD_COLOR_BLUE);
+	LCD_Draw_Box(40,260,20,LCD_COLOR_BLUE);
+
+
+	//other L
+	LCD_Draw_Box(80,80,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(80,100,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(80,120,20,LCD_COLOR_GREEN);
+	LCD_Draw_Box(60,120,20,LCD_COLOR_GREEN);
+
+
+	// smol pp
+	LCD_Draw_Box(150,20,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(150,40,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(170,20,20,LCD_COLOR_BLUE2);
+	LCD_Draw_Box(130,20,20,LCD_COLOR_BLUE2);
+
+
+	//squiggle
+	LCD_Draw_Box(70,170,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(90,170,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(90,190,20,LCD_COLOR_MAGENTA);
+	LCD_Draw_Box(110,190,20,LCD_COLOR_MAGENTA);
+
+
+	//other squiggle
+	LCD_Draw_Box(160,270,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(180,270,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(160,290,20,LCD_COLOR_YELLOW);
+	LCD_Draw_Box(140,290,20,LCD_COLOR_YELLOW);
+
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_SetFont(&Font16x24);
+	LCD_DisplayChar(100,140,'T');
+	LCD_DisplayChar(115,140,'E');
+	LCD_DisplayChar(130,140,'T');
+	LCD_DisplayChar(145,140,'R');
+	LCD_DisplayChar(155,140,'I');
+	LCD_DisplayChar(165,140,'S');
+
+}
+void game_screen(void){
+	LCD_Clear(0, LCD_COLOR_BLACK);
+	for(uint16_t i = 30;i < 230; i=i+20 ){
+		LCD_Draw_Vertical_Line(i, 40, 220,LCD_COLOR_WHITE);
+
+	}
+	for(uint16_t i = 40;i < 280; i=i + 20){
+		LCD_Draw_Horizontal_Line(30, i, 180,LCD_COLOR_WHITE);
+
+	}
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_SetFont(&Font12x12);
+	LCD_DisplayChar(100,25,'T');
+	LCD_DisplayChar(107,25,'E');
+	LCD_DisplayChar(114,25,'T');
+	LCD_DisplayChar(120,25,'R');
+	LCD_DisplayChar(127,25,'I');
+	LCD_DisplayChar(130,25,'S');
+}
+void end_screen(void){
+	LCD_Clear(0, LCD_COLOR_BLACK);
+	LCD_SetFont(&Font16x24);
+	LCD_DisplayChar(120,140,'G');
+	LCD_DisplayChar(135,140,'A');
+	LCD_DisplayChar(150,140,'M');
+	LCD_DisplayChar(165,140,'E');
+
+	LCD_DisplayChar(120,170,'O');
+	LCD_DisplayChar(135,170,'V');
+	LCD_DisplayChar(150,170,'E');
+	LCD_DisplayChar(165,170,'R');
+
+	//line
+		LCD_Draw_Box(20,80,20,LCD_COLOR_CYAN);
+		LCD_Draw_Box(20,60,20,LCD_COLOR_CYAN);
+		LCD_Draw_Box(20,20,20,LCD_COLOR_CYAN);
+		LCD_Draw_Box(20,40,20,LCD_COLOR_CYAN);
+
+
+
+		//square
+		LCD_Draw_Box(160,200,20,LCD_COLOR_RED);
+		LCD_Draw_Box(180,200,20,LCD_COLOR_RED);
+		LCD_Draw_Box(180,220,20,LCD_COLOR_RED);
+		LCD_Draw_Box(160,220,20,LCD_COLOR_RED);
+
+
+		//L
+		LCD_Draw_Box(20,220,20,LCD_COLOR_BLUE);
+		LCD_Draw_Box(20,240,20,LCD_COLOR_BLUE);
+		LCD_Draw_Box(20,260,20,LCD_COLOR_BLUE);
+		LCD_Draw_Box(40,260,20,LCD_COLOR_BLUE);
+
+
+		//other L
+		LCD_Draw_Box(80,80,20,LCD_COLOR_GREEN);
+		LCD_Draw_Box(80,100,20,LCD_COLOR_GREEN);
+		LCD_Draw_Box(80,120,20,LCD_COLOR_GREEN);
+		LCD_Draw_Box(60,120,20,LCD_COLOR_GREEN);
+
+
+		// smol pp
+		LCD_Draw_Box(150,20,20,LCD_COLOR_BLUE2);
+		LCD_Draw_Box(150,40,20,LCD_COLOR_BLUE2);
+		LCD_Draw_Box(170,20,20,LCD_COLOR_BLUE2);
+		LCD_Draw_Box(130,20,20,LCD_COLOR_BLUE2);
+
+
+		//squiggle
+		LCD_Draw_Box(70,170,20,LCD_COLOR_MAGENTA);
+		LCD_Draw_Box(90,170,20,LCD_COLOR_MAGENTA);
+		LCD_Draw_Box(90,190,20,LCD_COLOR_MAGENTA);
+		LCD_Draw_Box(110,190,20,LCD_COLOR_MAGENTA);
+
+
+		//other squiggle
+		LCD_Draw_Box(160,270,20,LCD_COLOR_YELLOW);
+		LCD_Draw_Box(180,270,20,LCD_COLOR_YELLOW);
+		LCD_Draw_Box(160,290,20,LCD_COLOR_YELLOW);
+		LCD_Draw_Box(140,290,20,LCD_COLOR_YELLOW);
+}
+void visualDemo(void)
+{
+	//uint16_t x;
+	//uint16_t y;
+	// This for loop just illustrates how with using logic and for loops, you can create interesting things
+	// this may or not be useful ;)
+//	for(y=0; y<LCD_PIXEL_HEIGHT; y++){
+//		for(x=0; x < LCD_PIXEL_WIDTH; x++){
+//			if (x & 32)
+//				frameBuffer[x*y] = LCD_COLOR_WHITE;
+//			else
+//				frameBuffer[x*y] = LCD_COLOR_BLACK;
+//		}
+//	}
+
+	title_screen();
+	HAL_Delay(3000);
+	game_screen();
+	HAL_Delay(3000);
+	end_screen();
+
+//
+//	HAL_Delay(1500);
+//	LCD_Clear(0, LCD_COLOR_GREEN);
+//	HAL_Delay(1500);
+//	LCD_Clear(0, LCD_COLOR_RED);
+//	HAL_Delay(1500);
+//	LCD_Clear(0, LCD_COLOR_WHITE);
+//	LCD_Draw_Vertical_Line(10,10,250,LCD_COLOR_MAGENTA);
+//	HAL_Delay(1500);
+//	LCD_Draw_Vertical_Line(230,10,250,LCD_COLOR_MAGENTA);
+//	HAL_Delay(1500);
+//
+//	LCD_Draw_Circle_Fill(125,150,20,LCD_COLOR_BLACK);
+//	HAL_Delay(2000);
+//
+//	LCD_Clear(0,LCD_COLOR_BLUE);
+//	LCD_SetTextColor(LCD_COLOR_BLACK);
+//	LCD_SetFont(&Font16x24);
+//
+//	LCD_DisplayChar(100,140,'H');
+//	LCD_DisplayChar(115,140,'e');
+//	LCD_DisplayChar(125,140,'l');
+//	LCD_DisplayChar(130,140,'l');
+//	LCD_DisplayChar(140,140,'o');
+//
+//	LCD_DisplayChar(100,160,'W');
+//	LCD_DisplayChar(115,160,'o');
+//	LCD_DisplayChar(125,160,'r');
+//	LCD_DisplayChar(130,160,'l');
+//	LCD_DisplayChar(140,160,'d');
 }
 
 /**
