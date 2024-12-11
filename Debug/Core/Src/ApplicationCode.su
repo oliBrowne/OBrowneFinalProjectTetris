@@ -1,2 +1,7 @@
-../Core/Src/ApplicationCode.c:23:6:ApplicationInit	8	static
-../Core/Src/ApplicationCode.c:44:6:LCD_Visual_Demo	8	static
+../Core/Src/ApplicationCode.c:24:6:ApplicationInit	8	static
+../Core/Src/ApplicationCode.c:45:6:LCD_Visual_Demo	8	static
+../Core/Src/ApplicationCode.c:49:6:startScreen	8	static
+../Core/Src/ApplicationCode.c:53:6:endScreen	8	static
+../Core/Src/ApplicationCode.c:58:6:LCD_Touch_Polling_Demo	8	static
+../Core/Src/ApplicationCode.c:79:6:LCDTouchScreenInterruptGPIOInit	32	static
+../Core/Src/ApplicationCode.c:105:6:EXTI15_10_IRQHandler	16	static

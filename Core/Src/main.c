@@ -19,6 +19,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "ApplicationCode.h"
+#include "Game.h"
+
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -35,13 +37,15 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
+
   // The default system configuration function is "suspect" so we need to make our own clock configuration
   // Note - You, the developer, MAY have to play with some of this coniguration as you progress in your project
   SystemClockOverride();
 
   ApplicationInit(); // Initializes the LCD functionality
 
-  LCD_Visual_Demo();
+
+
 
   HAL_Delay(5000);
 
@@ -49,9 +53,37 @@ int main(void)
   // Un-comment the below function after setting COMPILE_TOUCH to 1 in stmpe811.h
   //LCD_Touch_Polling_Demo(); // This function Will not return
 
+  uint32_t events_to_run = 0;
+  addSchedulerEvent(StartScreen);
   while (1)
   {
+	  events_to_run = getScheduledEvents();
+	  switch(events_to_run){
+	  	  case StartScreen:
+	  		startScreen();
+	  		removeSchedulerEvent(StartScreen);
+	  		break;
+	  	  case EndScreen:
+	  		endScreen();
+	  		removeSchedulerEvent(EndScreen);
+	  		break;
+	  	  case BlockDown:
+	  		currBlock_Down();
+	  		removeSchedulerEvent(BlockDown);
+	  		  break;
+	  	  case BlockRotate:
+	  		currBlock_Rotate();
+	  		removeSchedulerEvent(BlockRotate);
+	  		  break;
+	  	  case GameScreen:
+	  		game_screen();
+	  		newCurrBlock();
+	  		removeSchedulerEvent(GameScreen);
+	  		  break;
+	  	  default:
+	  		  break;
 
+	  }
   }
 
 }

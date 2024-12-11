@@ -503,6 +503,9 @@ void end_screen(void){
 	LCD_DisplayChar(150,170,'E');
 	LCD_DisplayChar(165,170,'R');
 
+
+
+
 	//line
 		LCD_Draw_Box(20,80,20,LCD_COLOR_CYAN);
 		LCD_Draw_Box(20,60,20,LCD_COLOR_CYAN);

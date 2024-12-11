@@ -1,4 +1,6 @@
 ../Core/Src/Game.c:13:6:board_init	2
-../Core/Src/Game.c:21:6:currBlock_verifyDown	5
-../Core/Src/Game.c:45:6:currBlock_Rotate	27
-../Core/Src/Game.c:398:6:currBlock_verifyRotate	75
+../Core/Src/Game.c:22:6:newCurrBlock	1
+../Core/Src/Game.c:73:6:currBlock_verifyDown	9
+../Core/Src/Game.c:106:6:currBlock_Down	2
+../Core/Src/Game.c:131:6:currBlock_Rotate	27
+../Core/Src/Game.c:484:6:currBlock_verifyRotate	75

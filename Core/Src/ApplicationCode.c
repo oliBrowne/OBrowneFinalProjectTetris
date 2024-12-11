@@ -10,6 +10,7 @@
 /* Static variables */
 
 
+
 extern void initialise_monitor_handles(void); 
 
 #if COMPILE_TOUCH_FUNCTIONS == 1
@@ -44,6 +45,13 @@ void ApplicationInit(void)
 void LCD_Visual_Demo(void)
 {
 	visualDemo();
+}
+void startScreen(void){
+	title_screen();
+
+}
+void endScreen(void){
+	end_screen();
 }
 
 #if COMPILE_TOUCH_FUNCTIONS == 1
@@ -92,6 +100,7 @@ void LCDTouchScreenInterruptGPIOInit(void)
 #define TOUCH_DETECTED_IRQ_STATUS_BIT   (1 << 0)  // Touchscreen detected bitmask
 
 static uint8_t statusFlag;
+static uint32_t touchscreen_status = 0;
 
 void EXTI15_10_IRQHandler()
 {
@@ -122,18 +131,21 @@ void EXTI15_10_IRQHandler()
 	// Determine if it is pressed or unpressed
 	if(isTouchDetected) // Touch has been detected
 	{
-		printf("\nPressed");
-		// May need to do numerous retries? 
-		DetermineTouchPosition(&StaticTouchData);
-		/* Touch valid */
-		printf("\nX: %03d\nY: %03d \n", StaticTouchData.x, StaticTouchData.y);
-		LCD_Clear(0, LCD_COLOR_RED);
-
+//		printf("\nPressed");
+//		// May need to do numerous retries?
+//		DetermineTouchPosition(&StaticTouchData);
+//		/* Touch valid */
+//		printf("\nX: %03d\nY: %03d \n", StaticTouchData.x, StaticTouchData.y);
+//		LCD_Clear(0, LCD_COLOR_RED);
+		if(touchscreen_status == 0){
+		addSchedulerEvent(GameScreen);
+		touchscreen_status++;
+		}
 	}else{
 
 		/* Touch not pressed */
-		printf("\nNot pressed \n");
-		LCD_Clear(0, LCD_COLOR_GREEN);
+//		printf("\nNot pressed \n");
+//		LCD_Clear(0, LCD_COLOR_GREEN);
 	}
 
 	STMPE811_Write(STMPE811_FIFO_STA, 0x01);

@@ -6,11 +6,14 @@
  */
 #include "stm32f4xx_hal.h"
 #include "stdbool.h"
+#include "RNG_Driver.h"
+#include "LCD_Driver.h"
+
 #ifndef INC_GAME_H_
 #define INC_GAME_H_
 
-#define BoardWidth 10
-#define BoardHeight 21
+#define BoardWidth 9
+#define BoardHeight 13
 #define Free 0
 #define Occupied 1
 
@@ -40,8 +43,10 @@ struct currentBlock{// position 1 is x position 2 is y
 	BlockType type;
 	BlockState state;
 };
-void board_init();
-bool currBlock_verifyDown(struct currentBlock *currBlock);
-void currBlock_Rotate(struct currentBlock *currBlock);
-bool currBlock_verifyRotate(struct currentBlock currBlock);
+void newCurrBlock(void);
+void board_init(void);
+bool currBlock_verifyDown(void);
+void currBlock_Down(void);
+void currBlock_Rotate(void);
+bool currBlock_verifyRotate(void);
 #endif /* INC_GAME_H_ */

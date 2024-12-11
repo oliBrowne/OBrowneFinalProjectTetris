@@ -1,4 +1,6 @@
 ../Core/Src/Game.c:13:6:board_init	16	static
-../Core/Src/Game.c:21:6:currBlock_verifyDown	24	static
-../Core/Src/Game.c:45:6:currBlock_Rotate	64	static
-../Core/Src/Game.c:398:6:currBlock_verifyRotate	16	static
+../Core/Src/Game.c:22:6:newCurrBlock	8	static
+../Core/Src/Game.c:73:6:currBlock_verifyDown	24	static
+../Core/Src/Game.c:106:6:currBlock_Down	16	static
+../Core/Src/Game.c:131:6:currBlock_Rotate	16	static
+../Core/Src/Game.c:484:6:currBlock_verifyRotate	16	static

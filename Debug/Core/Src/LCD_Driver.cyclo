@@ -15,5 +15,10 @@
 ../Core/Src/LCD_Driver.c:300:6:title_screen	1
 ../Core/Src/LCD_Driver.c:474:6:game_screen	3
 ../Core/Src/LCD_Driver.c:493:6:end_screen	1
-../Core/Src/LCD_Driver.c:555:6:visualDemo	1
-../Core/Src/LCD_Driver.c:612:6:LCD_Error_Handler	1
+../Core/Src/LCD_Driver.c:558:6:visualDemo	1
+../Core/Src/LCD_Driver.c:615:6:LCD_Error_Handler	1
+../Core/Src/LCD_Driver.c:630:6:InitializeLCDTouch	2
+../Core/Src/LCD_Driver.c:638:18:returnTouchStateAndLocation	1
+../Core/Src/LCD_Driver.c:643:6:DetermineTouchPosition	1
+../Core/Src/LCD_Driver.c:648:9:ReadRegisterFromTouchModule	1
+../Core/Src/LCD_Driver.c:653:6:WriteDataToTouchModule	1

@@ -6,7 +6,9 @@
  */
 
 #include "LCD_Driver.h"
+#include "Scheduler.h"
 #include "stm32f4xx_hal.h"
+#include "Game.h"
 
 #include <stdio.h>
 
@@ -16,6 +18,8 @@
 
 void ApplicationInit(void);
 void LCD_Visual_Demo(void);
+void startScreen(void);
+void endScreen(void);
 
 #if (COMPILE_TOUCH_FUNCTIONS == 1) && (COMPILE_TOUCH_INTERRUPT_SUPPORT == 0)
 void LCD_Touch_Polling_Demo(void);

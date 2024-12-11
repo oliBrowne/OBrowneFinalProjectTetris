@@ -1,0 +1,4 @@
+../Core/Src/Timer.c:21:6:timerInit	1
+../Core/Src/Timer.c:34:6:tim2Start	1
+../Core/Src/Timer.c:39:6:tim2Stop	1
+../Core/Src/Timer.c:44:6:TIM2_IRQHandler	1
