@@ -47,14 +47,16 @@ int main(void)
 
 
 
-  HAL_Delay(5000);
+  HAL_Delay(1000);
 
   // DO NOT CALL THIS FUNCTION WHEN INTERRUPT MODE IS SELECTED IN THE COMPILE SWITCH IN stmpe811.h
   // Un-comment the below function after setting COMPILE_TOUCH to 1 in stmpe811.h
   //LCD_Touch_Polling_Demo(); // This function Will not return
 
   uint32_t events_to_run = 0;
+  uint32_t time_elaspsed = 0;
   addSchedulerEvent(StartScreen);
+  timerInit();
   while (1)
   {
 	  events_to_run = getScheduledEvents();
@@ -68,7 +70,10 @@ int main(void)
 	  		removeSchedulerEvent(EndScreen);
 	  		break;
 	  	  case BlockDown:
-	  		currBlock_Down();
+	  		//currBlock_Down();
+	  		PrintTime(time_elaspsed);
+	  		time_elaspsed = time_elaspsed + 1;
+	  		PrintDown();
 	  		removeSchedulerEvent(BlockDown);
 	  		  break;
 	  	  case BlockRotate:
@@ -77,6 +82,7 @@ int main(void)
 	  		  break;
 	  	  case GameScreen:
 	  		game_screen();
+	  		StartTime();
 	  		newCurrBlock();
 	  		removeSchedulerEvent(GameScreen);
 	  		  break;

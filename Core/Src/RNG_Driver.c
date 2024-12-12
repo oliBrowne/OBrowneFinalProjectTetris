@@ -16,13 +16,15 @@ void RNG_init(void){
 		}
 }
 uint32_t get_rand_num(void){
-	if(HAL_RNG_Init(&hRNG) != HAL_OK){
+	RNG_init();
+	if(HAL_RNG_Init(&hRNG)!= HAL_OK){
 			while(1){
 			}
 		}
 	uint32_t num = 0;
 	HAL_RNG_GenerateRandomNumber(&hRNG,&num);
-	return num%7;
+	num = num % 7;
+	return num;
 
 }
 

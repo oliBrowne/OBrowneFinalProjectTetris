@@ -26,7 +26,7 @@ void timerInit(){
 	timer.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	timer.Init.Prescaler = 65331;
 	timer.Init.CounterMode = TIM_COUNTERMODE_UP;
-	timer.Init.Period = 286;
+	timer.Init.Period = 1250;
 	HAL_TIM_Base_Init(&timer);
 	__HAL_TIM_URS_ENABLE(&timer);
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);

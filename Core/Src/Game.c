@@ -20,84 +20,154 @@ void board_init(void){
 }
 struct currentBlock *currBlock;
 void newCurrBlock(){
-	currBlock->BlockOne[1] = 5;
-	currBlock->BlockOne[2] = 5;
-	LCD_Draw_Box(110,100,20,LCD_COLOR_CYAN);
-	currBlock->BlockTwo[1] = 5;
-	currBlock->BlockTwo[2] = 4;
-	LCD_Draw_Box(110,80,20,LCD_COLOR_CYAN);
-	currBlock->BlockThree[1] = 5;
-	currBlock->BlockThree[2] = 3;
-	LCD_Draw_Box(110,60,20,LCD_COLOR_CYAN);
-	currBlock->BlockFour[1] = 5;
-	currBlock->BlockFour[2] = 2;
-	LCD_Draw_Box(110,40,20,LCD_COLOR_CYAN);
-//	switch(get_rand_num()){
-//		case line:{
-//			currBlock->BlockOne[1] = 5;
-//			currBlock->BlockOne[2] = 5;
-//			LCD_Draw_Box(80,1000,20,LCD_COLOR_CYAN);
-//			currBlock->BlockTwo[1] = 5;
-//			currBlock->BlockTwo[2] = 4;
-//			LCD_Draw_Box(80,80,20,LCD_COLOR_CYAN);
-//			currBlock->BlockThree[1] = 5;
-//			currBlock->BlockThree[2] = 3;
-//			LCD_Draw_Box(80,60,20,LCD_COLOR_CYAN);
-//			currBlock->BlockFour[1] = 5;
-//			currBlock->BlockFour[2] = 2;
-//			LCD_Draw_Box(80,40,20,LCD_COLOR_CYAN);
-//		}
-//			break;
-//		case Square:{
-//			break;
-//		}
-//		case LeftZigZag:{
-//			break;
-//		}
-//		case RightZigZag:{
-//			break;
-//		}
-//		case RightL:{
-//			break;
-//		}
-//		case LeftL:{
-//			break;
-//		}
-//		case smollPP:{
-//			break;
-//		}
-//
-//	}
+	currBlock->type = (BlockType)get_rand_num();
+	currBlock->state = state1;
+	switch(get_rand_num()){
+		case line:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 4;
+			LCD_Draw_Box(110,100,20,LCD_COLOR_CYAN);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 3;
+			LCD_Draw_Box(110,80,20,LCD_COLOR_CYAN);
+			currBlock->BlockThree[1] = 5;
+			currBlock->BlockThree[2] = 2;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_CYAN);
+			currBlock->BlockFour[1] = 5;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_CYAN);
+			grid();
+		}
+			break;
+		case Square:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 0;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_RED);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 1;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_RED);
+			currBlock->BlockThree[1] = 4;
+			currBlock->BlockThree[2] = 0;
+			LCD_Draw_Box(90,40,20,LCD_COLOR_RED);
+			currBlock->BlockFour[1] = 4;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(90,60,20,LCD_COLOR_RED);
+			grid();
+			break;
+		}
+		case LeftZigZag:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 0;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_MAGENTA);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 1;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_MAGENTA);
+			currBlock->BlockThree[1] = 4;
+			currBlock->BlockThree[2] = 0;
+			LCD_Draw_Box(90,40,20,LCD_COLOR_MAGENTA);
+			currBlock->BlockFour[1] = 4;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(90,60,20,LCD_COLOR_MAGENTA);
+			grid();
+			break;
+
+		}
+		case RightZigZag:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 0;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_YELLOW);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 1;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_YELLOW);
+			currBlock->BlockThree[1] = 4;
+			currBlock->BlockThree[2] = 0;
+			LCD_Draw_Box(90,40,20,LCD_COLOR_YELLOW);
+			currBlock->BlockFour[1] = 4;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(90,60,20,LCD_COLOR_YELLOW);
+			grid();
+			break;
+		}
+		case RightL:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 4;
+			LCD_Draw_Box(130,80,20,LCD_COLOR_GREEN);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 3;
+			LCD_Draw_Box(110,80,20,LCD_COLOR_GREEN);
+			currBlock->BlockThree[1] = 5;
+			currBlock->BlockThree[2] = 2;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_GREEN);
+			currBlock->BlockFour[1] = 5;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_GREEN);
+			grid();
+			break;
+		}
+		case LeftL:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 4;
+			LCD_Draw_Box(90,80,20,LCD_COLOR_BLUE);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 3;
+			LCD_Draw_Box(110,80,20,LCD_COLOR_BLUE);
+			currBlock->BlockThree[1] = 5;
+			currBlock->BlockThree[2] = 2;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_BLUE);
+			currBlock->BlockFour[1] = 5;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_BLUE);
+			grid();
+			break;
+		}
+		case smollPP:{
+			currBlock->BlockOne[1] = 5;
+			currBlock->BlockOne[2] = 0;
+			LCD_Draw_Box(110,40,20,LCD_COLOR_RED);
+			currBlock->BlockTwo[1] = 5;
+			currBlock->BlockTwo[2] = 1;
+			LCD_Draw_Box(110,60,20,LCD_COLOR_RED);
+			currBlock->BlockThree[1] = 6;
+			currBlock->BlockThree[2] = 1;
+			LCD_Draw_Box(130,60,20,LCD_COLOR_RED);
+			currBlock->BlockFour[1] = 4;
+			currBlock->BlockFour[2] = 1;
+			LCD_Draw_Box(90,60,20,LCD_COLOR_RED);
+			grid();
+			break;
+		}
+
+	}
 }
 
 bool currBlock_verifyDown(void){
 	int testVar[2];
 	testVar[1] = currBlock->BlockOne[1];
 	testVar[2] = currBlock->BlockOne[2] + 1;
-	if((board[testVar[1]][testVar[2]] != board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockThree[1]][currBlock->BlockThree[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockFour[1]][currBlock->BlockFour[2]])){
-		if(board[testVar[1]][testVar[2]] != Free){
+	if(((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockThree[1]][currBlock->BlockThree[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockFour[1]][currBlock->BlockFour[2]]))){
+		if((board[testVar[1]][testVar[2]]) != Free){
 			return false;
 		}
 	}
 	testVar[1] = currBlock->BlockTwo[1];
 	testVar[2] = currBlock->BlockTwo[2] + 1;
-	if((board[testVar[1]][testVar[2]] != board[currBlock->BlockOne[1]][currBlock->BlockOne[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockThree[1]][currBlock->BlockThree[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockFour[1]][currBlock->BlockFour[2]])){
-		if(board[testVar[1]][testVar[2]] != Free){
+	if(((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockOne[1]][currBlock->BlockOne[2]])) & ((board[testVar[1]][testVar[2]] != board[currBlock->BlockThree[1]][currBlock->BlockThree[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockFour[1]][currBlock->BlockFour[2]]))){
+		if((board[testVar[1]][testVar[2]]) != Free){
 			return false;
 		}
 	}
 
 	testVar[1] = currBlock->BlockThree[1];
 	testVar[2] = currBlock->BlockThree[2] + 1;
-	if((board[testVar[1]][testVar[2]] != board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockOne[1]][currBlock->BlockOne[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockFour[1]][currBlock->BlockFour[2]])){
-		if(board[testVar[1]][testVar[2]] != Free){
+	if(((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockOne[1]][currBlock->BlockOne[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockFour[1]][currBlock->BlockFour[2]]))){
+		if((board[testVar[1]][testVar[2]]) != Free){
 			return false;
 		}
 	}
 	testVar[1] = currBlock->BlockFour[1];
 	testVar[2] = currBlock->BlockFour[2] + 1;
-	if((board[testVar[1]][testVar[2]] != board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockThree[1]][currBlock->BlockThree[2]]) & (board[testVar[1]][testVar[2]] != board[currBlock->BlockOne[1]][currBlock->BlockOne[2]])){
-		if(board[testVar[1]][testVar[2]] != Free){
+	if(((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockTwo[1]][currBlock->BlockTwo[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockThree[1]][currBlock->BlockThree[2]])) & ((board[testVar[1]][testVar[2]]) != (board[currBlock->BlockOne[1]][currBlock->BlockOne[2]]))){
+		if((board[testVar[1]][testVar[2]]) != Free){
 			return false;
 		}
 	}

@@ -53,6 +53,18 @@ void startScreen(void){
 void endScreen(void){
 	end_screen();
 }
+void StartTime(void){
+	tim2Start();
+}
+void StopTime (void){
+	tim2Stop();
+}
+void PrintTime(uint32_t time_elaspsed){
+	PrintTimeLCD(time_elaspsed);
+}
+void PrintDown(void){
+	PrintDownLCD();
+}
 
 #if COMPILE_TOUCH_FUNCTIONS == 1
 void LCD_Touch_Polling_Demo(void)

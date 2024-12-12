@@ -24,7 +24,7 @@ typedef enum {
 	RightZigZag,
 	RightL,
 	LeftL,
-	smollPP
+	smollPP,
 }BlockType;
 
 typedef enum {

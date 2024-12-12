@@ -297,6 +297,35 @@ void LCD_DisplayChar(uint16_t Xpos, uint16_t Ypos, uint8_t Ascii)
   Ascii -= 32;
   LCD_Draw_Char(Xpos, Ypos, &LCD_Currentfonts->table[Ascii * LCD_Currentfonts->Height]);
 }
+void PrintTimeLCD(uint32_t time_elapsed){
+
+	if(time_elapsed > 100){
+	int Sec100s = time_elapsed / 100; // x
+	LCD_Draw_Box(155+5,270,30,LCD_COLOR_BLACK);
+	LCD_DisplayChar(155, 270, Sec100s + 48);
+	}
+	time_elapsed = time_elapsed % 100; // now holds xx
+	int Sec_10s = time_elapsed / 10; // x
+	int Sec_1s = time_elapsed % 10; // x
+
+	LCD_Draw_Box(155+15,270,30,LCD_COLOR_BLACK);
+	LCD_Draw_Box(155+30,270,30,LCD_COLOR_BLACK);
+
+	LCD_SetFont(&Font16x24);
+	LCD_DisplayChar(110,270,'T');
+	LCD_DisplayChar(120,270,'i');
+	LCD_DisplayChar(130,270,'m');
+	LCD_DisplayChar(146,270,'e');
+
+	LCD_DisplayChar(155+15, 270, Sec_10s + 48);
+	LCD_DisplayChar(155+30, 270, Sec_1s + 48);
+}
+void PrintDownLCD(void){
+	LCD_DisplayChar(110 - 70,270,'D');
+	LCD_DisplayChar(120 - 70,270,'o');
+	LCD_DisplayChar(130 - 70,270,'w');
+	LCD_DisplayChar(146 - 70,270,'n');
+}
 void title_screen(void){
 
 	LCD_SetFont(&Font16x24);
@@ -471,8 +500,7 @@ void title_screen(void){
 	LCD_DisplayChar(165,140,'S');
 
 }
-void game_screen(void){
-	LCD_Clear(0, LCD_COLOR_BLACK);
+void grid(void){
 	for(uint16_t i = 30;i < 230; i=i+20 ){
 		LCD_Draw_Vertical_Line(i, 40, 220,LCD_COLOR_WHITE);
 
@@ -481,6 +509,11 @@ void game_screen(void){
 		LCD_Draw_Horizontal_Line(30, i, 180,LCD_COLOR_WHITE);
 
 	}
+}
+void game_screen(void){
+	LCD_Clear(0, LCD_COLOR_BLACK);
+	grid();
+
 	LCD_SetTextColor(LCD_COLOR_WHITE);
 	LCD_SetFont(&Font12x12);
 	LCD_DisplayChar(100,25,'T');

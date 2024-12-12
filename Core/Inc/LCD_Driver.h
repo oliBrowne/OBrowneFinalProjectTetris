@@ -77,6 +77,11 @@ void LCD_Error_Handler(void);
 void title_screen(void);
 void game_screen(void);
 void end_screen(void);
+void PrintTimeLCD(uint32_t time_elapsed);
+void PrintDownLCD(void);
+void grid(void);
+
+
 // Demo using provided functions
 void visualDemo(void);
 
