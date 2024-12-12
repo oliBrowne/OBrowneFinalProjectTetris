@@ -872,11 +872,11 @@ void newCurrBlock(){
  8000806:	681b      	ldr	r3, [r3, #0]
  8000808:	2200      	movs	r2, #0
  800080a:	609a      	str	r2, [r3, #8]
-			LCD_Draw_Box(110,40,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(130,60,20,LCD_COLOR_MAGENTA);
  800080c:	f64f 031f 	movw	r3, #63519	@ 0xf81f
  8000810:	2214      	movs	r2, #20
- 8000812:	2128      	movs	r1, #40	@ 0x28
- 8000814:	206e      	movs	r0, #110	@ 0x6e
+ 8000812:	213c      	movs	r1, #60	@ 0x3c
+ 8000814:	2082      	movs	r0, #130	@ 0x82
  8000816:	f001 fcf3 	bl	8002200 <LCD_Draw_Box>
 			currBlock->BlockTwo[1] = 5;
  800081a:	4b57      	ldr	r3, [pc, #348]	@ (8000978 <newCurrBlock+0x2c4>)
@@ -904,11 +904,11 @@ void newCurrBlock(){
  8000842:	681b      	ldr	r3, [r3, #0]
  8000844:	2200      	movs	r2, #0
  8000846:	619a      	str	r2, [r3, #24]
-			LCD_Draw_Box(90,40,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(110,40,20,LCD_COLOR_MAGENTA);
  8000848:	f64f 031f 	movw	r3, #63519	@ 0xf81f
  800084c:	2214      	movs	r2, #20
  800084e:	2128      	movs	r1, #40	@ 0x28
- 8000850:	205a      	movs	r0, #90	@ 0x5a
+ 8000850:	206e      	movs	r0, #110	@ 0x6e
  8000852:	f001 fcd5 	bl	8002200 <LCD_Draw_Box>
 			currBlock->BlockFour[1] = 4;
  8000856:	4b48      	ldr	r3, [pc, #288]	@ (8000978 <newCurrBlock+0x2c4>)
@@ -920,10 +920,10 @@ void newCurrBlock(){
  8000860:	681b      	ldr	r3, [r3, #0]
  8000862:	2201      	movs	r2, #1
  8000864:	621a      	str	r2, [r3, #32]
-			LCD_Draw_Box(90,60,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(90,40,20,LCD_COLOR_MAGENTA);
  8000866:	f64f 031f 	movw	r3, #63519	@ 0xf81f
  800086a:	2214      	movs	r2, #20
- 800086c:	213c      	movs	r1, #60	@ 0x3c
+ 800086c:	2128      	movs	r1, #40	@ 0x28
  800086e:	205a      	movs	r0, #90	@ 0x5a
  8000870:	f001 fcc6 	bl	8002200 <LCD_Draw_Box>
 			grid();
@@ -943,11 +943,11 @@ void newCurrBlock(){
  8000884:	681b      	ldr	r3, [r3, #0]
  8000886:	2200      	movs	r2, #0
  8000888:	609a      	str	r2, [r3, #8]
-			LCD_Draw_Box(110,40,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(90,60,20,LCD_COLOR_YELLOW);
  800088a:	f64f 73e0 	movw	r3, #65504	@ 0xffe0
  800088e:	2214      	movs	r2, #20
- 8000890:	2128      	movs	r1, #40	@ 0x28
- 8000892:	206e      	movs	r0, #110	@ 0x6e
+ 8000890:	213c      	movs	r1, #60	@ 0x3c
+ 8000892:	205a      	movs	r0, #90	@ 0x5a
  8000894:	f001 fcb4 	bl	8002200 <LCD_Draw_Box>
 			currBlock->BlockTwo[1] = 5;
  8000898:	4b37      	ldr	r3, [pc, #220]	@ (8000978 <newCurrBlock+0x2c4>)
@@ -975,11 +975,11 @@ void newCurrBlock(){
  80008c0:	681b      	ldr	r3, [r3, #0]
  80008c2:	2200      	movs	r2, #0
  80008c4:	619a      	str	r2, [r3, #24]
-			LCD_Draw_Box(90,40,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(130,40,20,LCD_COLOR_YELLOW);
  80008c6:	f64f 73e0 	movw	r3, #65504	@ 0xffe0
  80008ca:	2214      	movs	r2, #20
  80008cc:	2128      	movs	r1, #40	@ 0x28
- 80008ce:	205a      	movs	r0, #90	@ 0x5a
+ 80008ce:	2082      	movs	r0, #130	@ 0x82
  80008d0:	f001 fc96 	bl	8002200 <LCD_Draw_Box>
 			currBlock->BlockFour[1] = 4;
  80008d4:	4b28      	ldr	r3, [pc, #160]	@ (8000978 <newCurrBlock+0x2c4>)
@@ -991,11 +991,11 @@ void newCurrBlock(){
  80008de:	681b      	ldr	r3, [r3, #0]
  80008e0:	2201      	movs	r2, #1
  80008e2:	621a      	str	r2, [r3, #32]
-			LCD_Draw_Box(90,60,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(110,40,20,LCD_COLOR_YELLOW);
  80008e4:	f64f 73e0 	movw	r3, #65504	@ 0xffe0
  80008e8:	2214      	movs	r2, #20
- 80008ea:	213c      	movs	r1, #60	@ 0x3c
- 80008ec:	205a      	movs	r0, #90	@ 0x5a
+ 80008ea:	2128      	movs	r1, #40	@ 0x28
+ 80008ec:	206e      	movs	r0, #110	@ 0x6e
  80008ee:	f001 fc87 	bl	8002200 <LCD_Draw_Box>
 			grid();
  80008f2:	f002 f8ff 	bl	8002af4 <grid>
@@ -1155,8 +1155,8 @@ void newCurrBlock(){
  80009fc:	681b      	ldr	r3, [r3, #0]
  80009fe:	2200      	movs	r2, #0
  8000a00:	609a      	str	r2, [r3, #8]
-			LCD_Draw_Box(110,40,20,LCD_COLOR_RED);
- 8000a02:	f44f 4378 	mov.w	r3, #63488	@ 0xf800
+			LCD_Draw_Box(110,40,20,LCD_COLOR_BLUE2);
+ 8000a02:	f240 531f 	movw	r3, #1311	@ 0x51f
  8000a06:	2214      	movs	r2, #20
  8000a08:	2128      	movs	r1, #40	@ 0x28
  8000a0a:	206e      	movs	r0, #110	@ 0x6e
@@ -1171,8 +1171,8 @@ void newCurrBlock(){
  8000a1a:	681b      	ldr	r3, [r3, #0]
  8000a1c:	2201      	movs	r2, #1
  8000a1e:	611a      	str	r2, [r3, #16]
-			LCD_Draw_Box(110,60,20,LCD_COLOR_RED);
- 8000a20:	f44f 4378 	mov.w	r3, #63488	@ 0xf800
+			LCD_Draw_Box(110,60,20,LCD_COLOR_BLUE2);
+ 8000a20:	f240 531f 	movw	r3, #1311	@ 0x51f
  8000a24:	2214      	movs	r2, #20
  8000a26:	213c      	movs	r1, #60	@ 0x3c
  8000a28:	206e      	movs	r0, #110	@ 0x6e
@@ -1187,8 +1187,8 @@ void newCurrBlock(){
  8000a38:	681b      	ldr	r3, [r3, #0]
  8000a3a:	2201      	movs	r2, #1
  8000a3c:	619a      	str	r2, [r3, #24]
-			LCD_Draw_Box(130,60,20,LCD_COLOR_RED);
- 8000a3e:	f44f 4378 	mov.w	r3, #63488	@ 0xf800
+			LCD_Draw_Box(130,60,20,LCD_COLOR_BLUE2);
+ 8000a3e:	f240 531f 	movw	r3, #1311	@ 0x51f
  8000a42:	2214      	movs	r2, #20
  8000a44:	213c      	movs	r1, #60	@ 0x3c
  8000a46:	2082      	movs	r0, #130	@ 0x82
@@ -1203,8 +1203,8 @@ void newCurrBlock(){
  8000a56:	681b      	ldr	r3, [r3, #0]
  8000a58:	2201      	movs	r2, #1
  8000a5a:	621a      	str	r2, [r3, #32]
-			LCD_Draw_Box(90,60,20,LCD_COLOR_RED);
- 8000a5c:	f44f 4378 	mov.w	r3, #63488	@ 0xf800
+			LCD_Draw_Box(90,60,20,LCD_COLOR_BLUE2);
+ 8000a5c:	f240 531f 	movw	r3, #1311	@ 0x51f
  8000a60:	2214      	movs	r2, #20
  8000a62:	213c      	movs	r1, #60	@ 0x3c
  8000a64:	205a      	movs	r0, #90	@ 0x5a

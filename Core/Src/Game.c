@@ -58,16 +58,16 @@ void newCurrBlock(){
 		case LeftZigZag:{
 			currBlock->BlockOne[1] = 5;
 			currBlock->BlockOne[2] = 0;
-			LCD_Draw_Box(110,40,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(130,60,20,LCD_COLOR_MAGENTA);
 			currBlock->BlockTwo[1] = 5;
 			currBlock->BlockTwo[2] = 1;
 			LCD_Draw_Box(110,60,20,LCD_COLOR_MAGENTA);
 			currBlock->BlockThree[1] = 4;
 			currBlock->BlockThree[2] = 0;
-			LCD_Draw_Box(90,40,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(110,40,20,LCD_COLOR_MAGENTA);
 			currBlock->BlockFour[1] = 4;
 			currBlock->BlockFour[2] = 1;
-			LCD_Draw_Box(90,60,20,LCD_COLOR_MAGENTA);
+			LCD_Draw_Box(90,40,20,LCD_COLOR_MAGENTA);
 			grid();
 			break;
 
@@ -75,16 +75,16 @@ void newCurrBlock(){
 		case RightZigZag:{
 			currBlock->BlockOne[1] = 5;
 			currBlock->BlockOne[2] = 0;
-			LCD_Draw_Box(110,40,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(90,60,20,LCD_COLOR_YELLOW);
 			currBlock->BlockTwo[1] = 5;
 			currBlock->BlockTwo[2] = 1;
 			LCD_Draw_Box(110,60,20,LCD_COLOR_YELLOW);
 			currBlock->BlockThree[1] = 4;
 			currBlock->BlockThree[2] = 0;
-			LCD_Draw_Box(90,40,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(130,40,20,LCD_COLOR_YELLOW);
 			currBlock->BlockFour[1] = 4;
 			currBlock->BlockFour[2] = 1;
-			LCD_Draw_Box(90,60,20,LCD_COLOR_YELLOW);
+			LCD_Draw_Box(110,40,20,LCD_COLOR_YELLOW);
 			grid();
 			break;
 		}
@@ -123,16 +123,16 @@ void newCurrBlock(){
 		case smollPP:{
 			currBlock->BlockOne[1] = 5;
 			currBlock->BlockOne[2] = 0;
-			LCD_Draw_Box(110,40,20,LCD_COLOR_RED);
+			LCD_Draw_Box(110,40,20,LCD_COLOR_BLUE2);
 			currBlock->BlockTwo[1] = 5;
 			currBlock->BlockTwo[2] = 1;
-			LCD_Draw_Box(110,60,20,LCD_COLOR_RED);
+			LCD_Draw_Box(110,60,20,LCD_COLOR_BLUE2);
 			currBlock->BlockThree[1] = 6;
 			currBlock->BlockThree[2] = 1;
-			LCD_Draw_Box(130,60,20,LCD_COLOR_RED);
+			LCD_Draw_Box(130,60,20,LCD_COLOR_BLUE2);
 			currBlock->BlockFour[1] = 4;
 			currBlock->BlockFour[2] = 1;
-			LCD_Draw_Box(90,60,20,LCD_COLOR_RED);
+			LCD_Draw_Box(90,60,20,LCD_COLOR_BLUE2);
 			grid();
 			break;
 		}
